@@ -15,9 +15,9 @@ ingress_details:
 
 # Metrics
 main_deployment_metrics:
-  http_requests_total: #TODO: Enter the value from main deployment's /metrics endpoint
-  process_cpu_seconds_total: #TODO: Enter the CPU seconds from main deployment
-  process_resident_memory_bytes: #TODO: Enter the memory usage from main deployment
+  http_requests_total: 164 #TODO: Enter the value from main deployment's /metrics endpoint
+  process_cpu_seconds_total: 15.52 #TODO: Enter the CPU seconds from main deployment
+  process_resident_memory_bytes: 1.29609728e+08 #TODO: Enter the memory usage from main deployment
 
 canary_deployment_metrics:
   http_requests_total: #TODO: Enter the value from canary deployment's /metrics endpoint
@@ -38,16 +38,16 @@ prometheus_metrics:
 
 # Rollback Test
 rollback_test:
-  previous_revision: #TODO: Enter the revision number before rollback
-  rollback_command_used: #TODO: Enter the helm rollback command you used
-  time_to_rollback_seconds: #TODO: Enter how long the rollback took to complete
+  previous_revision: 1 #TODO: Enter the revision number before rollback
+  rollback_command_used: helm rollback canary-demo REVISION_NUMBER -n canary-demo #TODO: Enter the helm rollback command you used
+  time_to_rollback_seconds: 252 #TODO: Enter how long the rollback took to complete
 
 # Error Budget Calculation (based on 99.9% SLO)
 error_budget:
-  monthly_error_budget_seconds: #TODO: Calculate and enter the monthly error budget in seconds
-  remaining_error_budget_percentage: #TODO: Enter current remaining error budget percentage
+  monthly_error_budget_seconds: 2592.00 #TODO: Calculate and enter the monthly error budget in seconds
+  remaining_error_budget_percentage: 100.00% #TODO: Enter current remaining error budget percentage
 
 # Additional Observations
 observations:
-  unexpected_behaviors: #TODO: List any unexpected behaviors you observed
-  suggested_improvements: #TODO: List any improvements you would suggest
+  unexpected_behaviors: "none" #TODO: List any unexpected behaviors you observed
+  suggested_improvements: "none" #TODO: List any improvements you would suggest

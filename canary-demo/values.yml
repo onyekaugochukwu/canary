@@ -1,0 +1,13 @@
+canary:
+  enabled: true
+  replicaCount: 1
+  image:
+    tag: "v3"
+
+config:
+  main:
+    appColor: "white"
+    welcomeMessage: "Welcome to Upcommerce.com!"
+  canary:
+    appColor: "yellow"
+    welcomeMessage: "Welcome to Upcommerce.com Canary!"
