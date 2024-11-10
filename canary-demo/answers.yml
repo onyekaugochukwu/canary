@@ -1,53 +1,53 @@
 # Deployment Information
 pods_status:
-  main_pods_running: #TODO: Enter number of main pods running
-  canary_pods_running: #TODO: Enter number of canary pods running
+  main_pods_running: 10
+  canary_pods_running: 4
 
 # Service Information
 service_endpoints:
-  main_service_cluster_ip: #TODO: Enter the ClusterIP of main service
-  canary_service_cluster_ip: #TODO: Enter the ClusterIP of canary service
+  main_service_cluster_ip: 10.104.62.144
+  canary_service_cluster_ip: 10.96.47.47 
 
 # Ingress Information
 ingress_details:
-  address: #TODO: Enter the Ingress controller IP address
-  host: #TODO: Enter the configured host (should be canary-demo.local)
+  address: 192.168.49.2
+  host: canary-demo.local
 
 # Metrics
 main_deployment_metrics:
-  http_requests_total: #TODO: Enter the value from main deployment's /metrics endpoint
-  process_cpu_seconds_total: #TODO: Enter the CPU seconds from main deployment
-  process_resident_memory_bytes: #TODO: Enter the memory usage from main deployment
+  http_requests_total: 14 #TODO: Enter the value from main deployment's /metrics endpoint
+  process_cpu_seconds_total: 0.33 #TODO: Enter the CPU seconds from main deployment
+  process_resident_memory_bytes: 3.0302208e+07 #TODO: Enter the memory usage from main deployment
 
 canary_deployment_metrics:
-  http_requests_total: #TODO: Enter the value from canary deployment's /metrics endpoint
-  process_cpu_seconds_total: #TODO: Enter the CPU seconds from canary deployment
-  process_resident_memory_bytes: #TODO: Enter the memory usage from canary deployment
+  http_requests_total: 5 #TODO: Enter the value from canary deployment's /metrics endpoint
+  process_cpu_seconds_total: 0.24 #TODO: Enter the CPU seconds from canary deployment
+  process_resident_memory_bytes: 3.090432e+07 #TODO: Enter the memory usage from canary deployment
 
 # Traffic Distribution Test
 traffic_test_results:
-  total_requests_sent: #TODO: Enter how many test requests you sent (should be 20)
-  main_responses_received: #TODO: Enter how many responses were from main deployment
-  canary_responses_received: #TODO: Enter how many responses were from canary deployment
-  actual_canary_percentage: #TODO: Calculate the actual percentage of canary traffic
+  total_requests_sent: 20 #TODO: Enter how many test requests you sent (should be 20)
+  main_responses_received: 15 #TODO: Enter how many responses were from main deployment
+  canary_responses_received: 5 #TODO: Enter how many responses were from canary deployment
+  actual_canary_percentage: 25 #TODO: Calculate the actual percentage of canary traffic
 
 # Prometheus Queries
 prometheus_metrics:
-  main_request_rate: #TODO: Enter the result of rate(http_requests_total{version="v1"}[5m])
-  canary_request_rate: #TODO: Enter the result of rate(http_requests_total{version="v2"}[5m])
+  main_request_rate: not available because prometeus doesnot have app version #TODO: Enter the result of rate(http_requests_total{version="v1"}[5m])
+  canary_request_rate: not available because prometeus doesnot have app version #TODO: Enter the result of rate(http_requests_total{version="v2"}[5m])
 
 # Rollback Test
 rollback_test:
-  previous_revision: #TODO: Enter the revision number before rollback
-  rollback_command_used: #TODO: Enter the helm rollback command you used
-  time_to_rollback_seconds: #TODO: Enter how long the rollback took to complete
+  previous_revision: 2 #TODO: Enter the revision number before rollback
+  rollback_command_used: elm rollback canary-demo 1 -n canary-demo #TODO: Enter the helm rollback command you used
+  time_to_rollback_seconds: less than 1 second #TODO: Enter how long the rollback took to complete
 
 # Error Budget Calculation (based on 99.9% SLO)
 error_budget:
-  monthly_error_budget_seconds: #TODO: Calculate and enter the monthly error budget in seconds
-  remaining_error_budget_percentage: #TODO: Enter current remaining error budget percentage
+  monthly_error_budget_seconds: 2592.00 #TODO: Calculate and enter the monthly error budget in seconds
+  remaining_error_budget_percentage: 100.00% #TODO: Enter current remaining error budget percentage
 
 # Additional Observations
 observations:
-  unexpected_behaviors: #TODO: List any unexpected behaviors you observed
-  suggested_improvements: #TODO: List any improvements you would suggest
+  unexpected_behaviors: Prometeus does not have the version number of the app, I dont know why. The commmand is not http_requests_total, its prometheus_http_requests_total #TODO: List any unexpected behaviors you observed
+  suggested_improvements: None related to this exercise #TODO: List any improvements you would suggest
